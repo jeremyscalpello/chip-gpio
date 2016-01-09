@@ -1,0 +1,20 @@
+{
+  "name": "chip-gpio",
+  "version": "1.0.0",
+  "description": "GPIO access and interrupt detection with JavaScript",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremyscalpello/chip-gpio.git"
+  },
+  "author": "Jeremy Scalpello",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeremyscalpello/chip-gpio/issues"
+  },
+  "homepage": "https://github.com/jeremyscalpello/chip-gpio#readme",
+  "dependencies": {
+    "epoll": "^0.1.16"
+  }
+}
