@@ -39,7 +39,7 @@ btn.watch(function (err, value) {
 });
 
 function exit() {
-	gpio.unexport();
+	btn.unexport();
 	led.unexport();
 	process.exit();
 }
