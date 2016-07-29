@@ -5,7 +5,6 @@ var Epoll = require('epoll').Epoll;
 var os = require("os");
 var MAPPING;
 if (os.release().startsWith("4.4")) {
-  console.log("Using 4.4");
   MAPPING = [1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023];
 } else {
   MAPPING = [408, 409, 410, 411, 412, 413, 414, 415];
