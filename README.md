@@ -25,7 +25,7 @@ When the button is pressed the LED should turn on, when it's released the LED
 should turn off. This can be achieved with the following code:
 
 ```js
-var Gpio = require('./index').Gpio;
+var Gpio = require('chip-gpio').Gpio;
 var btn = new Gpio(7, 'in', 'both', {
 	debounceTimeout: 500
 });
