@@ -1,9 +1,9 @@
 # chip-gpio
 GPIO access for CHIP on Node.JS
 
-## What's Coming Up
+## Updates 
 
-In coming weeks, I would like to extend this module to support temperature sensors such as the DALLAS 18B20 and IR LEDs.
+Support for the 4.4 kernel CHIPs has been added thanks to https://github.com/nkolban.
 
 ## Installation
 
