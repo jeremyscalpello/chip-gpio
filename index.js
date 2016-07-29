@@ -2,8 +2,15 @@
 
 var fs = require('fs');
 var Epoll = require('epoll').Epoll;
+var os = require("os");
+var MAPPING;
+if (os.release().startsWith("4.4")) {
+  console.log("Using 4.4");
+  MAPPING = [1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023];
+} else {
+  MAPPING = [408, 409, 410, 411, 412, 413, 414, 415];
+}
 
-var MAPPING = [408, 409, 410, 411, 412, 413, 414, 415];
 var GPIO_ROOT = '/sys/class/gpio/';
 
 function pollerEventHandler(err, fd, events) {
@@ -40,7 +47,7 @@ function Gpio(gpio, direction, edge, options) {
 
 	options = options || {};
 
-	if (!MAPPING[gpio] || !gpio) {
+	if (gpio == null || !MAPPING[gpio]) {
 		throw new Error('Invalid GPIO Pin')
 	}
 
