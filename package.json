@@ -1,8 +1,8 @@
 {
-	"name": "chip-gpio",
-	"version": "1.1.0",
-	"description": "GPIO access for CHIP and Node.JS",
-	"keywords": [
+  "name": "chip-gpio",
+  "version": "1.1.1",
+  "description": "GPIO access for CHIP and Node.JS",
+  "keywords": [
     "node",
     "chip",
     "getchip",
@@ -12,19 +12,19 @@
     "onoff",
     "chip-gpio"
   ],
-	"main": "index.js",
-	"scripts": {},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/jeremyscalpello/chip-gpio.git"
-	},
-	"author": "Jeremy Scalpello",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/jeremyscalpello/chip-gpio/issues"
-	},
-	"homepage": "https://github.com/jeremyscalpello/chip-gpio#readme",
-	"dependencies": {
-		"epoll": "^0.1.16"
-	}
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremyscalpello/chip-gpio.git"
+  },
+  "author": "Jeremy Scalpello",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeremyscalpello/chip-gpio/issues"
+  },
+  "homepage": "https://github.com/jeremyscalpello/chip-gpio#readme",
+  "dependencies": {
+    "epoll": "^0.1.16"
+  }
 }
