@@ -73,7 +73,10 @@ The GPIO sysfs interface can also be used for interrupt detection.
 
 ##### Gpio(gpio, direction[, edge])
 Returns a new Gpio object that can be used to access a GPIO.
-- gpio - An unsigned integer specifying the GPIO number.
+- gpio - An unsigned integer specifying the GPIO number. This can be either 0 
+to 7 (which maps to the correct GPIO pins on the CHIP based on the pinout) or 
+a higher number which directly attempts to export the provided pin without using 
+the mapping.
 - direction - A string specifying whether the GPIO should be configured as an
 input or output. The valid values are: 'in', 'out', 'high', and 'low'. 'high'
 and 'low' are variants of 'out' that configure the GPIO as an output with an
