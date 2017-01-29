@@ -49,11 +49,24 @@ function Gpio(gpio, direction, edge, options) {
 
 	options = options || {};
 
-	if (gpio == null || !MAPPING[gpio]) {
+        //
+        // MenloParkInnovcation: If the port specified is greater than the MAPPING
+        // maximum, take it as a direct map.
+        //
+        // This is to allow access to all C.H.I.P. ports.
+        //
+
+	if (gpio == null) {
 		throw new Error('Invalid GPIO Pin')
 	}
 
-	this.gpio = MAPPING[gpio];
+        if (gpio > MAPPING.length) {
+            this.gpio = gpio;
+        }
+        else {
+            this.gpio = MAPPING[gpio];
+        }
+
 	this.gpioPath = GPIO_ROOT + 'gpio' + this.gpio + '/';
 	this.opts = {};
 	this.opts.debounceTimeout = options.debounceTimeout || 0;
