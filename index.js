@@ -33,13 +33,13 @@ function pollerEventHandler(err, fd, events) {
 	});
 }
 
-function Gpio(gpio, direction, edge, options) {
+function Gpio(gpio, direction, activeLow, edge, options) {
 	var valuePath;
 	var directionSet = false;
 	var tries = 0;
 
 	if (!(this instanceof Gpio)) {
-		return new Gpio(gpio, direction, edge, options);
+		return new Gpio(gpio, direction, activeLow, edge, options);
 	}
 
 	if (typeof edge === 'object' && !options) {
@@ -88,12 +88,20 @@ function Gpio(gpio, direction, edge, options) {
 				}
 			}
 		}
+		if (activeLow) {
+			fs.writeFileSync(this.gpioPath + 'active_low', activeLow);
+		}
 		if (edge) {
 			fs.writeFileSync(this.gpioPath + 'edge', edge);
 		}
 	} else {
 		try {
 			fs.writeFileSync(this.gpioPath + 'direction', direction);
+		} catch (ignore) {}
+		try {
+			if (activeLow) {
+				fs.writeFileSync(this.gpioPath + 'active_low', activeLow);
+			}
 		} catch (ignore) {}
 		try {
 			if (edge) {
@@ -170,4 +178,8 @@ Gpio.prototype.edge = function () {
 
 Gpio.prototype.setEdge = function (edge) {
 	fs.writeFileSync(this.gpioPath + 'edge', edge);
+};
+
+Gpio.prototype.setActiveLow = function (activeLow) {
+	fs.writeFileSync(this.gpioPath + 'active_low', activeLow);
 };
