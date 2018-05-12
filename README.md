@@ -26,7 +26,7 @@ should turn off. This can be achieved with the following code:
 
 ```js
 var Gpio = require('chip-gpio').Gpio;
-var btn = new Gpio(7, 'in', 'both', {
+var btn = new Gpio(7, 'in', 0, 'both', {
 	debounceTimeout: 500
 });
 var led = new Gpio(6, 'out');
@@ -71,7 +71,7 @@ The GPIO sysfs interface can also be used for interrupt detection.
 
 ## API
 
-##### Gpio(gpio, direction[, edge])
+##### Gpio(gpio, direction[, activeLow, edge])
 Returns a new Gpio object that can be used to access a GPIO.
 - gpio - An unsigned integer specifying the GPIO number. This can be either 0 
 to 7 (which maps to the correct GPIO pins on the CHIP based on the pinout) or 
@@ -88,6 +88,8 @@ interrupts. On Linux kernels prior to 3.13 it was possible for both inputs
 and outputs to generate interrupts. The 3.13 kernel dropped support for
 interrupt generating outputs, irrespective of whether the underlying hardware
 supports them or not.
+-[activeLow] - An optional integer that can be used to invert the reading and
+writing value attribute
 
 ##### read()
 Read GPIO value synchronously. Returns the number 0 or 1 to represent the
@@ -119,6 +121,10 @@ output.
 Set GPIO direction.
 - direction - A string specifying whether the GPIO should be configured as an
 input or output. The valid values are 'in' and 'out'.
+
+##### setActiveLow(value)
+Invert the GPIO logic used for reading and writing.
+- value - The number 0 or 1 (or any non-zero).
 
 ##### edge()
 Returns the string 'none', 'falling', 'rising', or 'both' indicating the
